@@ -30,7 +30,7 @@ const NewsState = ({ children }) => {
     const getDescription = async (id) => {
         try{
             const res = await axios.get(`https://node-hnapi.herokuapp.com/item/${id}`);
-            let { data } = res;
+            const { data } = res;
 
             dispatch({ type: GET_DESCRIPTION, payload: data});
         } catch(error){

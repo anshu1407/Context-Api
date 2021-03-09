@@ -1,10 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 
 import newsContext from "../context/News/NewsContext";
 
-const Description = () => {
-    const NewsContext = useContext(newsContext);
+const Description = ({match}) => {
 
+    useEffect(() => {
+      NewsContext.getDescription(match.params.id);
+   }, []);
+
+   const NewsContext = useContext(newsContext);
     console.log(NewsContext.activeNews, 'NewsContext.activeNews.title');
 
     const { activeNews } = NewsContext;
